@@ -5,10 +5,8 @@ import com.example.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
 
 @RestController
@@ -33,6 +31,18 @@ public class ProductController {
         }
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
+    }
+
+
+    @PostMapping("/updateprice")
+    public ResponseEntity<Object> updateProductPrice(){
+        productService.updateProductPrice();
+        List<Product> allProduct = productService.getAllProduct();
+        if(!allProduct.isEmpty()){
+            return ResponseEntity.status(HttpStatus.OK).body(allProduct);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("Product not found or table is empty.");
     }
 
 }
