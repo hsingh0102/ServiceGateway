@@ -1,0 +1,34 @@
+# IntelliJ IDEA files
+.idea/
+
+# Gradle files
+.gradle/
+build/
+
+# Docker files
+*.docker
+
+# Log files
+*.log
+
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven files
+target/
+*.pom
+*.xml
+
+# Other IDEs
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
